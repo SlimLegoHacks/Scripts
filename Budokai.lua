@@ -12,6 +12,12 @@ end)
 -- Functions
 -- Functions
 -- Functions
+local currentBP = game:GetService("Players").LocalPlayer.stats.BattlePower.Value 
+while true do
+    wait(5)
+    print(currentBP)
+end
+
 spawn(function()
     wait(0.1)
     local args = {
@@ -83,11 +89,9 @@ w2:Toggle("Farm Shadow", function(bool)
             wait()
             if not game.Workspace:FindFirstChild(shadowPlyrName) then
                 print('working')
-                wait()
+                wait(1)
                 game.Players.LocalPlayer.Character.Humanoid.Health = 0
                 wait(10)
-                useDemonCape()
-                wait(1)
                 game:GetService("ReplicatedStorage").Events.SpawnShadow:FireServer()
                 wait(1)
             end
@@ -100,17 +104,15 @@ w2:Toggle("Farm Shadow", function(bool)
                 break;
             end
             game.Players.LocalPlayer.Character.Humanoid.Health = 0
-            wait(10)
-            useDemonCape()
         end
     end)
     spawn(function()
+        local shadow = game:GetService("Workspace")[shadowPlyrName].HumanoidRootPart.Position
         while shared.shadowtoggle do
             wait(5)
             if shared.shadowtoggle == false then
                 break;
             end
-            local shadow = game:GetService("Workspace")[shadowPlyrName].HumanoidRootPart.Position
             game.Players.LocalPlayer.Character:MoveTo(shadow)
         end
     end)
@@ -126,7 +128,16 @@ w2:Toggle("Farm Shadow", function(bool)
             wait(0.2)
         end
     end)
+    spawn(function()
+    while shared.toggle do
+        wait()
+        if game.Players.LocalPlayer.Character.Humanoid.Health == 0 then
+            wait(8)
+            useDemonCape()
+        end
+    end
     end)
+end)
 
 -- w2:Toggle("AutoPunch",function(bool)
 --     shared.autopunchtoggle = bool
