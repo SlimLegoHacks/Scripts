@@ -161,6 +161,16 @@ spawn(function()
 end)
 spawn(function()
     while shared.shadowtoggle do
+        wait(3)
+        if shared.shadowtoggle == false then
+            break;
+        end
+        local shadow = game:GetService("Workspace")[shadowPlyrName].HumanoidRootPart.Position
+        game.Players.LocalPlayer.Character:MoveTo(shadow)
+    end
+end)
+spawn(function()
+    while shared.shadowtoggle do
         autoPunch()
         wait(0.2)
     end
