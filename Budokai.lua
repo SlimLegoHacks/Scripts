@@ -161,7 +161,7 @@ spawn(function()
 end)
 spawn(function()
     while shared.shadowtoggle do
-        wait(3)
+        wait(5)
         if shared.shadowtoggle == false then
             break;
         end
