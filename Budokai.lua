@@ -205,4 +205,6 @@ y2:Dropdown("Copy Coords",{"G.S.S","Earth","Olbus","Netfiss","Polaris","Majin Pl
     end
 end)
 
+y2:Label("Copies to Clipboard",Color3.fromRGB(38,38,38),Color3.fromRGB(0,216,111))
+
 --balls
