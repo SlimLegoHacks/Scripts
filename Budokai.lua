@@ -185,7 +185,7 @@ w2:DestroyGui()
 local y = library:CreateWindow("Copy Planet Coords") 
 local y2 = y:CreateFolder("-")
 
-y:Dropdown("Copy Coords",{"G.S.S","Earth","Olbus","Netfiss","Polaris","Majin Planet","Sadala","Namek"},true,function(Planet)
+y2:Dropdown("Copy Coords",{"G.S.S","Earth","Olbus","Netfiss","Polaris","Majin Planet","Sadala","Namek"},true,function(Planet)
     if Planet == "G.S.S" then
         setclipboard('W13245')
     elseif Planet == "Earth" then
@@ -205,6 +205,5 @@ y:Dropdown("Copy Coords",{"G.S.S","Earth","Olbus","Netfiss","Polaris","Majin Pla
     end
 end)
 
-y:Label("Copies to Clipboard",Color3.fromRGB(38,38,38),Color3.fromRGB(0,216,111))
 
 --balls
