@@ -180,11 +180,27 @@ w2:Button("HBTC TP", function()
     game:GetService("ReplicatedStorage").Events.NPCEvents.Interact:FireServer(unpack(args)) 
 end)
 
-y2:Button("WIP", function()
-    print("WIP")
-end)
+w2:DestroyGui()
 
-local y = library:CreateWindow("DestroyGui") 
+local y = library:CreateWindow("Copy Planet Coords") 
 local y2 = z:CreateFolder("-")
 
-y2:DestroyGui()
+y2:Dropdown("Copy Coords",{"G.S.S","Earth","Olbus","Netfiss","Polaris","Majin Planet","Sadala","Namek"},true,function(Planet)
+    if Planet == "G.S.S" then
+        setclipboard('W13245')
+    elseif Planet == "Earth" then
+        setclipboard('S98121')
+    elseif Planet == "Olbus" then
+        setclipboard('N10933')
+    elseif Planet == "Netfiss" then
+        setclipboard('E12994')
+    elseif Planet == "Polaris" then
+        setclipboard('N00442')
+    elseif Planet == "Majin Planet" then
+        setclipboard('W81238')
+    elseif Planet == "Sadala" then
+        setclipboard('W15774')
+    elseif Planet == "Namek" then
+        setclipboard('S12812')
+    end
+end)
