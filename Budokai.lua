@@ -2,6 +2,12 @@
 local plyrName = game:GetService("Players").LocalPlayer.Name
 local shadowPlyrName = "Shadow".." "..plyrName
 
+local VirtualUser=game:service'VirtualUser'
+game:service'Players'.LocalPlayer.Idled:connect(function()
+VirtualUser:CaptureController()
+VirtualUser:ClickButton2(Vector2.new())
+end)
+
 spawn(function()
     wait(0.1)
     local args = {
@@ -144,7 +150,7 @@ spawn(function()
             break;
         end
         game.Players.LocalPlayer.Character.Humanoid.Health = 0
-        wait(8)
+        wait(10)
         useDemonCape()
     end
 end)
