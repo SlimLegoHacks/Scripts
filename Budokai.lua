@@ -44,6 +44,16 @@ function farmShadow()
     game:GetService("ReplicatedStorage").Events.SpawnShadow:FireServer()
 end
 
+function useDemonCape()
+    local args = {
+        [1] = CFrame.new(Vector3.new(-185.654296875, 210.955322265625, -3503.25), Vector3.new(0.8912745714187622, -0.0082553680986166, -0.45338907837867737)),
+        [2] = "Demon Cape",
+        [4] = Vector3.new(-185.654296875, 210.955322265625, -3503.25)
+    }
+
+    game:GetService("ReplicatedStorage").Events.Attacks.Skill:FireServer(unpack(args))
+end
+
 
 
 
@@ -120,6 +130,8 @@ spawn(function()
             wait()
             game.Players.LocalPlayer.Character.Humanoid.Health = 0
             wait(10)
+            useDemonCape()
+            wait(1)
             game:GetService("ReplicatedStorage").Events.SpawnShadow:FireServer()
             wait(1)
         end
@@ -132,6 +144,8 @@ spawn(function()
             break;
         end
         game.Players.LocalPlayer.Character.Humanoid.Health = 0
+        wait(8)
+        useDemonCape()
     end
 end)
 spawn(function()
