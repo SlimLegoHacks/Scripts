@@ -72,34 +72,87 @@ end
 -- GUI + SHADOWFARM
 local library = loadstring(game:HttpGet(('https://raw.githubusercontent.com/AikaV3rm/UiLib/master/Lib.lua')))()
 
-local w = library:CreateWindow("SlimSploit") 
+local w = library:CreateWindow("Budokai") 
 local w2 = w:CreateFolder("-")
 
-w2:Toggle("AutoPunch",function(bool)
-    shared.autopunchtoggle = bool
+w2:Toggle("Farm Shadow", function(bool)
+    shared.shadowtoggle = bool
     spawn(function()
-    while shared.autopunchtoggle do
-        autoPunch()
-        wait(0.2)
-        if shared.autopunchtoggle == false then
-            break;
+        while shared.shadowtoggle do
+            print('working')
+            wait()
+            if not game.Workspace:FindFirstChild(shadowPlyrName) then
+                print('working')
+                wait()
+                game.Players.LocalPlayer.Character.Humanoid.Health = 0
+                wait(10)
+                useDemonCape()
+                wait(1)
+                game:GetService("ReplicatedStorage").Events.SpawnShadow:FireServer()
+                wait(1)
+            end
         end
-    end
-end)
-end)
+    end)
+    spawn(function()
+        while shared.shadowtoggle do
+            wait(120)
+            if shared.shadowtoggle == false then
+                break;
+            end
+            game.Players.LocalPlayer.Character.Humanoid.Health = 0
+            wait(10)
+            useDemonCape()
+        end
+    end)
+    spawn(function()
+        while shared.shadowtoggle do
+            wait(5)
+            if shared.shadowtoggle == false then
+                break;
+            end
+            local shadow = game:GetService("Workspace")[shadowPlyrName].HumanoidRootPart.Position
+            game.Players.LocalPlayer.Character:MoveTo(shadow)
+        end
+    end)
+    spawn(function()
+        while shared.shadowtoggle do
+            autoPunch()
+            wait(0.2)
+        end
+    end)
+    spawn(function()
+        while shared.shadowtoggle do
+            autoZVanish()
+            wait(0.2)
+        end
+    end)
+    end)
 
-w2:Toggle("AutoZVanish", function(bool)
-    shared.zvanishtoggle = bool
-    spawn(function()
-        while shared.zvanishtoggle do
-        autoZVanish()
-        wait(0.1)
-        if shared.zvanishtoggle == false then
-            break;
-        end
-    end
-end)
-end)
+-- w2:Toggle("AutoPunch",function(bool)
+--     shared.autopunchtoggle = bool
+--     spawn(function()
+--     while shared.autopunchtoggle do
+--         autoPunch()
+--         wait(0.2)
+--         if shared.autopunchtoggle == false then
+--             break;
+--         end
+--     end
+-- end)
+-- end)
+
+-- w2:Toggle("AutoZVanish", function(bool)
+--     shared.zvanishtoggle = bool
+--     spawn(function()
+--         while shared.zvanishtoggle do
+--         autoZVanish()
+--         wait(0.1)
+--         if shared.zvanishtoggle == false then
+--             break;
+--         end
+--     end
+-- end)
+-- end)
 
 w2:Button("VitalReplenish", function()
         ReplenishVitals()
@@ -127,67 +180,11 @@ w2:Button("HBTC TP", function()
     game:GetService("ReplicatedStorage").Events.NPCEvents.Interact:FireServer(unpack(args)) 
 end)
 
-local y = library:CreateWindow("Shadow Farm") 
-local y2 = y:CreateFolder("-")
-
-y2:Toggle("Farm Shadow", function(bool)
-    shared.shadowtoggle = bool
-spawn(function()
-    while shared.shadowtoggle do
-        print('working')
-        wait()
-        if not game.Workspace:FindFirstChild(shadowPlyrName) then
-            print('working')
-            wait()
-            game.Players.LocalPlayer.Character.Humanoid.Health = 0
-            wait(10)
-            useDemonCape()
-            wait(1)
-            game:GetService("ReplicatedStorage").Events.SpawnShadow:FireServer()
-            wait(1)
-        end
-    end
-end)
-spawn(function()
-    while shared.shadowtoggle do
-        wait(120)
-        if shared.shadowtoggle == false then
-            break;
-        end
-        game.Players.LocalPlayer.Character.Humanoid.Health = 0
-        wait(10)
-        useDemonCape()
-    end
-end)
-spawn(function()
-    while shared.shadowtoggle do
-        wait(5)
-        if shared.shadowtoggle == false then
-            break;
-        end
-        local shadow = game:GetService("Workspace")[shadowPlyrName].HumanoidRootPart.Position
-        game.Players.LocalPlayer.Character:MoveTo(shadow)
-    end
-end)
-spawn(function()
-    while shared.shadowtoggle do
-        autoPunch()
-        wait(0.2)
-    end
-end)
-spawn(function()
-    while shared.shadowtoggle do
-        autoZVanish()
-        wait(0.2)
-    end
-end)
-end)
-
 y2:Button("WIP", function()
     print("WIP")
 end)
 
-local z = library:CreateWindow("DestroyGui") 
-local z2 = z:CreateFolder("-")
+local y = library:CreateWindow("DestroyGui") 
+local y2 = z:CreateFolder("-")
 
-z2:DestroyGui()
+y2:DestroyGui()
