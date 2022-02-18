@@ -1,4 +1,4 @@
--- If you somehow got access to this script, tell me how please k thx.
+-- If you got access to this script, tell me how please k thx. Slim#0003
 local plyrName = game:GetService("Players").LocalPlayer.Name
 local shadowPlyrName = "Shadow".." "..plyrName
 -- AntiAFK
