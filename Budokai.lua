@@ -183,7 +183,7 @@ end)
 w2:DestroyGui()
 
 local y = library:CreateWindow("Copy Planet Coords") 
-local y2 = z:CreateFolder("-")
+local y2 = y:CreateFolder("-")
 
 y2:Dropdown("Copy Coords",{"G.S.S","Earth","Olbus","Netfiss","Polaris","Majin Planet","Sadala","Namek"},true,function(Planet)
     if Planet == "G.S.S" then
