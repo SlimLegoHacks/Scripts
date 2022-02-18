@@ -204,3 +204,5 @@ y2:Dropdown("Copy Coords",{"G.S.S","Earth","Olbus","Netfiss","Polaris","Majin Pl
         setclipboard('S12812')
     end
 end)
+
+--balls
