@@ -22,7 +22,7 @@ spawn(function()
 end)
 
 function autoPunch()
-    local resetfix = game.Workspace:WaitForChild(shadowPlyrName)
+    game.Workspace:WaitForChild(shadowPlyrName)
     local args = {
     [1] = false,
     [2] = true
@@ -31,7 +31,7 @@ function autoPunch()
 end
 
 function autoZVanish()  
-    local resetfix = game.Workspace:WaitForChild(shadowPlyrName)
+    game.Workspace:WaitForChild(shadowPlyrName)
     game:GetService("ReplicatedStorage").Events.Movement.Dash:FireServer()
 end
 
