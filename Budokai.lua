@@ -1,5 +1,18 @@
 -- If you somehow got access to this script, tell me how please k thx.
+local plyrName = game:GetService("Players").LocalPlayer.Name
+local shadowPlyrName = "Shadow".." "..plyrName
+
+spawn(function()
+    wait(0.1)
+    local args = {
+        [1] = "EndAdjustment"
+    }
+
+    game:GetService("ReplicatedStorage").Events.ChangePower:FireServer(unpack(args))
+end)
+
 function autoPunch()
+    local resetfix = game.Workspace:WaitForChild(shadowPlyrName)
     local args = {
     [1] = false,
     [2] = true
@@ -8,6 +21,7 @@ function autoPunch()
 end
 
 function autoZVanish()  
+    local resetfix = game.Workspace:WaitForChild(shadowPlyrName)
     game:GetService("ReplicatedStorage").Events.Movement.Dash:FireServer()
 end
 
@@ -101,11 +115,11 @@ spawn(function()
     while shared.shadowtoggle do
         print('working')
         wait()
-        if not game.Workspace:FindFirstChild("Shadow Not_Siim2") then
+        if not game.Workspace:FindFirstChild(shadowPlyrName) then
             print('working')
             wait()
             game.Players.LocalPlayer.Character.Humanoid.Health = 0
-            wait(15)
+            wait(10)
             game:GetService("ReplicatedStorage").Events.SpawnShadow:FireServer()
             wait(1)
         end
@@ -130,15 +144,6 @@ spawn(function()
     while shared.shadowtoggle do
         autoZVanish()
         wait(0.2)
-    end
-end)
-spawn(function()
-    while shared.shadowtoggle do
-        wait(5)
-        if shared.shadowtoggle == false then
-            break;
-        end
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace")["Shadow Not_Siim2"].HumanoidRootPart.CFrame * CFrame.new(0,0,0.0001)
     end
 end)
 end)
