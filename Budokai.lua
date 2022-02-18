@@ -1,13 +1,17 @@
 -- If you somehow got access to this script, tell me how please k thx.
 local plyrName = game:GetService("Players").LocalPlayer.Name
 local shadowPlyrName = "Shadow".." "..plyrName
-
-local VirtualUser=game:service'VirtualUser'
+-- AntiAFK
+local VirtualUser = game:service'VirtualUser'
 game:service'Players'.LocalPlayer.Idled:connect(function()
 VirtualUser:CaptureController()
 VirtualUser:ClickButton2(Vector2.new())
 end)
-
+-- Functions
+-- Functions
+-- Functions
+-- Functions
+-- Functions
 spawn(function()
     wait(0.1)
     local args = {
@@ -59,15 +63,16 @@ function useDemonCape()
 
     game:GetService("ReplicatedStorage").Events.Attacks.Skill:FireServer(unpack(args))
 end
-
-
-
-
-
-
+-- GUI + SHADOWFARM
+-- GUI + SHADOWFARM
+-- GUI + SHADOWFARM
+-- GUI + SHADOWFARM
+-- GUI + SHADOWFARM
+-- GUI + SHADOWFARM
+-- GUI + SHADOWFARM
 local library = loadstring(game:HttpGet(('https://raw.githubusercontent.com/AikaV3rm/UiLib/master/Lib.lua')))()
 
-local w = library:CreateWindow("General") 
+local w = library:CreateWindow("SlimSploit") 
 local w2 = w:CreateFolder("-")
 
 w2:Toggle("AutoPunch",function(bool)
