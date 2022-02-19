@@ -94,6 +94,7 @@ w2:Toggle("Farm Shadow", function(bool)
     end)
     spawn(function()
         while shared.shadowtoggle do
+            wait()
             if game:GetService("Players").LocalPlayer.stats.LifeForce.Value < 20 then
                 game.Players.LocalPlayer.Character.Humanoid.Health = 0
                 wait(8)
