@@ -86,7 +86,7 @@ w2:Toggle("Farm Shadow", function(bool)
                 print('working')
                 wait(1)
                 game.Players.LocalPlayer.Character.Humanoid.Health = 0
-                wait(10)
+                wait(12)
                 game:GetService("ReplicatedStorage").Events.SpawnShadow:FireServer()
                 wait(1)
             end
