@@ -12,11 +12,6 @@ end)
 -- Functions
 -- Functions
 -- Functions
-local currentBP = game:GetService("Players").LocalPlayer.stats.BattlePower.Value 
-while true do
-    wait(5)
-    print(currentBP)
-end
 
 spawn(function()
     wait(0.1)
@@ -107,16 +102,6 @@ w2:Toggle("Farm Shadow", function(bool)
         end
     end)
     spawn(function()
-        local shadow = game:GetService("Workspace")[shadowPlyrName].HumanoidRootPart.Position
-        while shared.shadowtoggle do
-            wait(5)
-            if shared.shadowtoggle == false then
-                break;
-            end
-            game.Players.LocalPlayer.Character:MoveTo(shadow)
-        end
-    end)
-    spawn(function()
         while shared.shadowtoggle do
             autoPunch()
             wait(0.2)
@@ -126,6 +111,16 @@ w2:Toggle("Farm Shadow", function(bool)
         while shared.shadowtoggle do
             autoZVanish()
             wait(0.2)
+        end
+    end)
+    spawn(function()
+        local shadow = game:GetService("Workspace")[shadowPlyrName].HumanoidRootPart.Position
+        while shared.shadowtoggle do
+            wait(5)
+            if shared.shadowtoggle == false then
+                break;
+            end
+            game.Players.LocalPlayer.Character:MoveTo(shadow)
         end
     end)
     spawn(function()
