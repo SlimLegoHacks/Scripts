@@ -94,6 +94,17 @@ w2:Toggle("Farm Shadow", function(bool)
     end)
     spawn(function()
         while shared.shadowtoggle do
+            if game:GetService("Players").LocalPlayer.stats.LifeForce.Value < 20 then
+                game.Players.LocalPlayer.Character.Humanoid.Health = 0
+                wait(8)
+                if game:GetService("Players").LocalPlayer.stats.LifeForce.Value < 20 then
+                   ReplenishVitals()
+                end
+            end
+        end
+    end)
+    spawn(function()
+        while shared.shadowtoggle do
             wait(120)
             if shared.shadowtoggle == false then
                 break;
