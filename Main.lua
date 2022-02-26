@@ -7,6 +7,8 @@ for i, v in pairs(checkHWID) do
             loadstring(game:HttpGet("https://raw.githubusercontent.com/SlimLegoHacks/Scripts/main/Budokai.lua"))()
         elseif game.GameId == 578392296 then
             loadstring(game:HttpGet("https://raw.githubusercontent.com/SlimLegoHacks/Scripts/main/LSOWDHUBXDNIGGABALLS.lua"))()
+        elseif game.GameId == 3368175675 then
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/SlimLegoHacks/Scripts/main/SwordFactory.lua"))()
         else
             print('Game Unsupported')
         end
