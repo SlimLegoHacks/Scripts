@@ -77,7 +77,7 @@ end)
 local currentHp = game.Players.LocalPlayer.Character.Humanoid.Health
 spawn(function() 
     wait(0.1)
-    for i,v in pairs(wallyGui:GetDescendants()) do
+    for i,v in pairs(wallyGui.Window.Sections:GetDescendants()) do
         if v:IsA("TextLabel") and v.Text == "Health" then
             while true do
                 wait()
@@ -89,7 +89,7 @@ end)
 
 spawn(function() 
     wait(0.1)
-    for i,v in pairs(wallyGui:GetDescendants()) do
+    for i,v in pairs(wallyGui.Window.Sections:GetDescendants()) do
         if v:IsA("TextLabel") and v.Text == "Sanity" then
             while true do
                 wait()
